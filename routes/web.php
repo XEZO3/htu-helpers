@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/login',function () {
+    $url = 'https://htu-helper.online'; // Replace this with the URL you want to redirect to
+    return redirect()->away($url);
+})->name("login");
 
 // Route::get('/', function () {
 //     return view('welcome');
