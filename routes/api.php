@@ -40,7 +40,7 @@ Route::group(['middleware'=>['auth:api']],function(){
     Route::get('/user/logout',[authController::class,'logout']);
     
         Route::get('/user/profile',function(Request $request ){
-            return "testooooooo";
+            return "testing";
         })->middleware(['verified']);
 
     
@@ -58,12 +58,11 @@ Route::post('/user/email/verification-notification', function (Request $request)
     return ["message"=>"new email was sent"];
 })->middleware(['throttle:6,1'])->name('verification.send');
 
-Route::get('/user/email/verify', function (Request $request) {
-     if(auth()->user()->hasVerifiedEmail()){
-         return ["message"=>"true"];
-     }else{
-        return ["message"=>"false"];
-     }
+// Route::get('/user/email/verify', function (Request $request) {
+//      if(auth()->user()->hasVerifiedEmail()){
+//          return ["message"=>"true"];
+//      }else{
+//         return ["message"=>"false"];
+//      }
+// });
 });
-});
-
